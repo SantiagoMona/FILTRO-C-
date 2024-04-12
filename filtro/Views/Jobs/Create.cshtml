@@ -1,0 +1,83 @@
+@model Job
+@{
+    ViewData["Title"] = "Create Job";
+}
+
+<div class="container text-center">
+  
+
+    <div class="row">
+        <div class="col-md-auto" style="background-color: gray;">
+             <div class="col">
+                <a class="btn btn-primary mt-5 btn-lg" asp-controller="Jobs" asp-action="Create">Crear oferta de empleo</a>
+            </div>
+            <div class="col">
+                 <a class="btn btn-primary mt-5 btn-lg" asp-controller="Jobs" asp-action="Index">Listado de ofertas</a>
+            </div>
+        </div>
+        
+
+        <div class="col-8">
+            <form aps-action="Create" method="post" enctype="multipart/form-data" >
+
+                <div class="row">
+                    
+                        <h1>Informacion de la empresa</h1>
+                        <div class="col">
+                            <label > Nombre de la Empresa</label>
+                            <input  class="form-control" asp-for="NameCompany" />
+                        </div>
+                        <div class="col">
+                            <label asp-for="LogoCompany" > logo de la Empresa</label>
+                            <input  type="file" class="form-control" name="archivo"/>
+                        </div>
+                </div>
+                <hr>
+                    <div class="row">
+                            <h1>Informacion de la Oferta</h1>
+                            <div class="col">
+                                <label >Titulo De la oferta</label>
+                                <input  class="form-control" asp-for="OfferTitle"/>
+                            </div>
+                            <div class="col">
+                                <label > pais</label>
+                                <input  class="form-control" asp-for="Country"/>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label >Salario</label>
+                                    <input type="number" class="form-control" asp-for="Salary"/>
+                                </div>
+                                <div class="col">
+                                    <label >vacantes/posiciones</label>
+                                    <input type="number" class="form-control" asp-for="Positions"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label >Idiomas</label>
+                                    <input  class="form-control" asp-for="Languages"/>
+                                </div>
+                                <div class="col">
+                                    <label>Estado de la oferta</label>
+                                    <select class="form-control" asp-for="Status" >
+                                        <option value="Activo">Activo</option>
+                                        <option value="Inactivo">Inactivo</option>
+                                    </select>
+                                    
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label>Descripcion</label>
+                                    <input type="text" class="form-control" asp-for="Description"/>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Crear una nueva oferta de empleo</button>
+                </div>
+            </form>
+        </div>
+       
+
+    </div>
+</div>

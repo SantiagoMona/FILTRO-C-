@@ -1,0 +1,121 @@
+@model Employ
+@{
+    ViewData["Title"] = "Editar empleado";
+}
+
+<div class="container text-center">
+  
+
+    <div class="row">
+        <div class="col-md-auto" style="background-color: gray;">
+             <div class="col">
+                <a class="btn btn-primary mt-5 btn-lg" asp-controller="Employees" asp-action="Create">Registrar nuevo empleado </a>
+            </div>
+            <div class="col">
+                 <a class="btn btn-primary mt-5 btn-lg" asp-controller="Employees" asp-action="Index">Listado de Empleados</a>
+            </div>
+        </div>
+        
+
+        <div class="col-8">
+            <form aps-action="Edit" asp-controller="Employees" method="post" enctype="multipart/form-data" >
+
+                <div class="row">
+                    
+                        <h1>Informacion del empleado</h1>
+                        <div class="col">
+                            <label > Nombre</label>
+                            <input  class="form-control" asp-for="@Model.Names" />
+                        </div>
+                        <div class="col">
+                            <label >Apellido</label>
+                            <input   class="form-control" asp-for="@Model.LastName" />
+                        </div>
+                        <div class="col">
+                              <label >correo</label>
+                            <input   class="form-control" asp-for="@Model.Email" />
+                        </div>
+                </div>
+                
+                    <div class="row">
+                        
+                            <div class="col">
+                                <label >fecha de nacimiento</label>
+                                <input  class="form-control" asp-for="@Model.BirthDate"/>
+                            </div>
+                            <div class="col">
+                                <label > genero</label>
+                                 <select class="form-control" asp-for="Gender">
+                                    <option value="Masculino">Masculino</option>
+                                    <option value="Femenino">Femenino</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label > telefono</label>
+                                <input type="number" class="form-control" asp-for="@Model.Phone"/>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <label >Direccion</label>
+                                    <input type="text" class="form-control" asp-for="@Model.Address"/>
+                                </div>
+                                <div class="col">
+                                    <label >Estado civil</label>
+                                    <select class="form-control" asp-for="CivilStatus">
+                                        <option value="Soltero">Soltero</option>
+                                        <option value="Casado">Casado</option>
+                                        <option value="Viudo">Viudo</option>
+                                        <option value="Divorciado">Divorciado</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                <label >salario deseado</label>
+                                    <input type="number" class="form-control" asp-for="@Model.Salary"/>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label >Titulo Academico</label>
+                                    <input  class="form-control" asp-for="@Model.AcademicTitle"/>
+                                </div>
+                                <div class="col">
+                                    <label>Area</label>
+                                    <input  class="form-control" asp-for="@Model.Area"/>
+                                </div>
+                                <div class="col">
+                                    <label>Idiomas</label>
+                                    <input  class="form-control" asp-for="@Model.Languages"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label>Descripcion</label>
+                                    <input type="text" class="form-control" asp-for="@Model.About"/>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label>foto de perfil</label>
+                                    <input type="file" class="form-control"  name="archivo"/>
+                                </div>
+                                <div class="col">
+                                    <label>hoja de vida</label>
+                                    <input type="file" class="form-control"  name="hojaVida"/>
+                                </div>
+
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Editar</button>
+                </div>
+            </form>
+        </div>
+       
+
+    </div>
+</div>
+
+
+                
+                

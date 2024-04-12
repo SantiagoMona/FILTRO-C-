@@ -1,0 +1,58 @@
+@{
+    ViewData["Title"] = "EMPLEADOS";
+}
+
+<div class="container text-center">
+    <form asp-controller="Employees" asp-action="Index">
+        <p>
+            <input type="text" name="buscar" class="form-text"/>
+            <input type="submit" value="buscar" class="btn btn-sm btn-primary"> 
+        </p>
+    </form>
+
+    <div class="row">
+        <div class="col-md-auto" style="background-color: gray;">
+             <div class="col">
+                <a class="btn btn-primary mt-5 btn-lg" asp-controller="Employees" asp-action="Create">Registrar nuevo empleado</a>
+            </div>
+            <div class="col">
+                 <a class="btn btn-primary mt-5 btn-lg" asp-controller="Employees" asp-action="Index">Listado de Empleados</a>
+            </div>
+        </div>
+
+
+        <div class="col-8">
+            <table class="table table-striped">
+                <thead>
+                    <th>Nombres</th>
+                    <th>Apellido</th>
+                    <th>Correo</th>
+                    <th>Acerca</th>
+                    <th>Acciones</th>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+
+                        <tr>
+                            <td>@item.Names</td>
+                            <td>@item.LastName</td>
+                            <td>@item.Email</td>
+                            <td>@item.About</td>
+                            <td> 
+                                <a class="btn btn-info" asp-action="Edit" asp-controller="Employees" asp-route-id="@item.Id">Editar</a>
+                                <a class="btn btn-warning" asp-action="Details" asp-controller="Employees" asp-route-id="@item.Id">Ver Detalles</a>
+                                <a class="btn btn-danger" asp-action="Delete" asp-controller="Employees" asp-route-id="@item.Id" method="post">Eliminar</a>
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+
+        </div>
+       
+
+    </div>
+</div>
+

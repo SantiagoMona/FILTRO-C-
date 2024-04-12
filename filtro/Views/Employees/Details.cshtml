@@ -1,0 +1,54 @@
+@model Employ;
+@{
+    ViewData["Title"] = "Detalles del usuario";
+}
+
+<div class="container text-center">
+  
+
+    <div class="row">
+        <div class="col-md-auto" style="background-color: gray;">
+             <div class="col">
+                <a class="btn btn-primary mt-5 btn-lg" asp-controller="Employees" asp-action="Create">Registrar nuevo empleado</a>
+            </div>
+            <div class="col">
+                 <a class="btn btn-primary mt-5 btn-lg" asp-controller="Employees" asp-action="Index">Listado de Empleados</a>
+            </div>
+        </div>
+        
+
+        <div class="col-8 " >
+            <div class="row">
+                <p><img src="@Model.ProfilePicture" class="object-fit-contain" width="100px"></p>
+                <h1>@Model.Names  @Model.LastName</h1>
+                <p>@Model.Email</p>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <p>Telefono: @Model.Phone</p>
+                </div>
+                <div class="col">
+                    <p>Direccion: @Model.Address</p>
+                </div>
+                <div class="col">
+                    <p>Fecha de nacimiento: @Model.BirthDate</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <p>Titulo: @Model.AcademicTitle</p>
+                </div>
+                <div class="col">
+                    <p>Idiomas: @Model.Languages</p>
+                </div>
+                <div class="col">
+                    <p>Area: @Model.Area</p>
+                </div>
+            </div>
+            <p>Acerca de:</p>
+            <p>@Model.About</p>
+            <a href="/documents/@Model.Cv" download=" @Model.Cv" class="btn btn-primary">Descargar hoja de vida</a>
+        </div>
+    </div>
+</div>
